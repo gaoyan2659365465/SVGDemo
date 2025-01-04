@@ -39,9 +39,13 @@ script = ExtResource("1_gctwm")
 [node name="Node2D" type="Node2D" parent="SubViewport"]
 script = ExtResource("3_m6cld")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, -1.15631, -3)
+mesh = SubResource("BoxMesh_bc121")
 
-[node name="Control" type="Control" parent="SubViewport/CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,20 +54,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_l0vxn")
 
-[node name="Button" type="Button" parent="SubViewport/CanvasLayer/Control"]
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
 offset_left = 54.0
 offset_top = 47.0
 offset_right = 117.0
 offset_bottom = 78.0
 text = "123456"
 
-[node name="LineEdit" type="LineEdit" parent="SubViewport/CanvasLayer/Control"]
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = 182.0
 offset_top = 49.0
 offset_right = 249.063
 offset_bottom = 80.0
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, -1.15631, -3)
-mesh = SubResource("BoxMesh_bc121")
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 154.0
+offset_top = 146.0
+offset_right = 194.0
+offset_bottom = 186.0
