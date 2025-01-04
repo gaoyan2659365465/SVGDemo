@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c4jemtq5tfe6p"]
+
+[ext_resource type="Script" path="res://主场景/sub_viewport.gd" id="1_gctwm"]
+[ext_resource type="Texture2D" uid="uid://bdqhgyx44woht" path="res://4.svg" id="1_lswo0"]
+[ext_resource type="Script" path="res://主场景/node_2d.gd" id="3_m6cld"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_luscx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jx64o"]
+resource_local_to_scene = true
+shading_mode = 0
+albedo_color = Color(1, 0, 0.913725, 0)
+albedo_texture = SubResource("ViewportTexture_luscx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_07vja"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_jx64o")
+
+[node name="主场景" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.653)
+h_offset = 0.39
+v_offset = -0.005
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_07vja")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+render_target_update_mode = 4
+script = ExtResource("1_gctwm")
+
+[node name="4" type="Sprite2D" parent="SubViewport"]
+position = Vector2(78, 85)
+texture = ExtResource("1_lswo0")
+
+[node name="Node2D" type="Node2D" parent="SubViewport"]
+script = ExtResource("3_m6cld")
