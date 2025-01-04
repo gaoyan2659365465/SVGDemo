@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4jemtq5tfe6p"]
+[gd_scene load_steps=5 format=3 uid="uid://c4jemtq5tfe6p"]
 
 [ext_resource type="Script" path="res://主场景/sub_viewport.gd" id="1_gctwm"]
-[ext_resource type="Texture2D" uid="uid://bdqhgyx44woht" path="res://4.svg" id="1_lswo0"]
-[ext_resource type="Script" path="res://主场景/node_2d.gd" id="3_m6cld"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_luscx"]
 viewport_path = NodePath("SubViewport")
@@ -30,10 +28,3 @@ mesh = SubResource("QuadMesh_07vja")
 [node name="SubViewport" type="SubViewport" parent="."]
 render_target_update_mode = 4
 script = ExtResource("1_gctwm")
-
-[node name="4" type="Sprite2D" parent="SubViewport"]
-position = Vector2(78, 85)
-texture = ExtResource("1_lswo0")
-
-[node name="Node2D" type="Node2D" parent="SubViewport"]
-script = ExtResource("3_m6cld")
