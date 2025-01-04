@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4jemtq5tfe6p"]
+[gd_scene load_steps=7 format=3 uid="uid://c4jemtq5tfe6p"]
 
 [ext_resource type="Script" path="res://主场景/sub_viewport.gd" id="1_gctwm"]
+[ext_resource type="Script" path="res://主场景/control.gd" id="3_l0vxn"]
+[ext_resource type="Script" path="res://主场景/node_2d.gd" id="3_m6cld"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_luscx"]
 viewport_path = NodePath("SubViewport")
@@ -8,7 +10,6 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jx64o"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_color = Color(1, 0, 0.913725, 0)
 albedo_texture = SubResource("ViewportTexture_luscx")
 
 [sub_resource type="QuadMesh" id="QuadMesh_07vja"]
@@ -28,3 +29,31 @@ mesh = SubResource("QuadMesh_07vja")
 [node name="SubViewport" type="SubViewport" parent="."]
 render_target_update_mode = 4
 script = ExtResource("1_gctwm")
+
+[node name="Node2D" type="Node2D" parent="SubViewport"]
+script = ExtResource("3_m6cld")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewport"]
+
+[node name="Control" type="Control" parent="SubViewport/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_l0vxn")
+
+[node name="Button" type="Button" parent="SubViewport/CanvasLayer/Control"]
+offset_left = 54.0
+offset_top = 47.0
+offset_right = 117.0
+offset_bottom = 78.0
+text = "123456"
+
+[node name="LineEdit" type="LineEdit" parent="SubViewport/CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 49.0
+offset_right = 249.063
+offset_bottom = 80.0
