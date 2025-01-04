@@ -1,32 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4jemtq5tfe6p"]
+[gd_scene load_steps=9 format=3 uid="uid://c4jemtq5tfe6p"]
 
 [ext_resource type="Script" path="res://主场景/sub_viewport.gd" id="1_gctwm"]
+[ext_resource type="Shader" path="res://主场景/主场景.gdshader" id="1_q83pa"]
 [ext_resource type="Script" path="res://主场景/control.gd" id="3_l0vxn"]
 [ext_resource type="Script" path="res://主场景/node_2d.gd" id="3_m6cld"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_luscx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vm78n"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jx64o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cijpy"]
 resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_luscx")
+render_priority = 0
+shader = ExtResource("1_q83pa")
+shader_parameter/img = SubResource("ViewportTexture_vm78n")
 
 [sub_resource type="QuadMesh" id="QuadMesh_07vja"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_jx64o")
+material = SubResource("ShaderMaterial_cijpy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_bc121"]
 
 [node name="主场景" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.653)
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0.887549, 1.09501)
 h_offset = 0.39
 v_offset = -0.005
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.721567, 0.692345, 0, -0.692345, 0.721567, 0, 0, 0)
 mesh = SubResource("QuadMesh_07vja")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
 render_target_update_mode = 4
 script = ExtResource("1_gctwm")
 
@@ -57,3 +63,7 @@ offset_left = 182.0
 offset_top = 49.0
 offset_right = 249.063
 offset_bottom = 80.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.33, 0, 0, 0, 0.33, 0, 0, 0, 0.33, 0, -1.15631, -3)
+mesh = SubResource("BoxMesh_bc121")

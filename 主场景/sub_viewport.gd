@@ -10,7 +10,7 @@ var 精灵
 
 func _ready() -> void:
 	var img = Image.new()
-	img.load_svg_from_string(svg字符串,4.0)
+	img.load_svg_from_string(svg字符串,2.0)
 	var img_tex = ImageTexture.create_from_image(img)
 	精灵 = Sprite2D.new()
 	精灵.position = Vector2(78,85)
